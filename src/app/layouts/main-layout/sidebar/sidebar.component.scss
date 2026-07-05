@@ -1,0 +1,21 @@
+/* sidebar.component.scss */
+@use '../../../../styles/tokens';
+
+:host {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background-color: #ffffff;
+  border-right: 1px solid tokens.$color-border;
+  transition: width 0.3s ease-in-out;
+  flex-shrink: 0;
+  
+  // Dynamic width handles host directly instead of an inner wrapper
+  &.collapsed { width: 4rem; }  // w-16
+  &.expanded { width: 15rem; } // w-60
+}
+
+.sidebar-brand-section { padding: 1rem; }
+.sidebar-toggle-btn { padding: 0.75rem; text-align: left; cursor: pointer; }
+.sidebar-menu { margin-top: 1rem; list-style: none; padding: 0; }
+.menu-item { display: flex; align-items: center; gap: 0.75rem; padding: 0.75rem; cursor: pointer; }

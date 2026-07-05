@@ -1,0 +1,28 @@
+<!-- <div class="p-6 bg-white rounded shadow">
+
+  <div class="flex justify-between mb-4">
+    <h1 class="text-xl font-bold">Bills</h1>
+    <a routerLink="/bills/create" class="btn-primary">Create Bill</a>
+  </div>
+  <app-table
+    [headers]="billHeaders"
+    [columns]="billColumns"
+    [data]="data"
+    (actionClicked)="goToDetailsPage($event)">
+  </app-table>
+</div> -->
+
+
+<div class="bill-container-card">
+  <div class="list-header-row">
+    <h1 class="page-title">Bills</h1>
+    <a (click)="createBill()" class="btn-create">Create Bill</a>
+  </div>
+  
+  <app-table
+    [headers]="billHeaders"
+    [columns]="billColumns"
+    [data]="data"
+    (actionClicked)="goToDetailsPage($event)">
+  </app-table>
+</div>

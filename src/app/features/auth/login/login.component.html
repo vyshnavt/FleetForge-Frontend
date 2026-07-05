@@ -1,0 +1,55 @@
+<!-- login.component.html -->
+<div class="auth-page-wrapper">
+  <div class="auth-card">
+    
+    <!-- Branding Header -->
+    <div class="auth-header">
+      <div class="brand-logo">Ft</div>
+      <h1 class="brand-title">Welcome back to FleetForge</h1>
+      <p class="brand-subtitle">Enter your details to access your account</p>
+    </div>
+
+    <!-- Form Interface -->
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="auth-form">
+      
+      <!-- Email Address Field -->
+      <div class="form-field-group">
+        <label class="field-label">Email Address</label>
+        <input type="email" formControlName="email" placeholder="name@company.com" class="form-input"
+               [class.input-error]="loginForm.get('email')?.touched && loginForm.get('email')?.invalid">
+        <span *ngIf="loginForm.get('email')?.touched && loginForm.get('email')?.invalid" class="error-message">
+          Please enter a valid email address
+        </span>
+      </div>
+
+      <!-- Password Field -->
+      <div class="form-field-group">
+        <div class="label-row">
+          <label class="field-label">Password</label>
+          <a routerLink="/forgot-password" class="forgot-link">Forgot password?</a>
+        </div>
+        <input type="password" formControlName="password" placeholder="••••••••" class="form-input"
+               [class.input-error]="loginForm.get('password')?.touched && loginForm.get('password')?.invalid">
+        <span *ngIf="loginForm.get('password')?.touched && loginForm.get('password')?.invalid" class="error-message">
+          Password must be at least 6 characters long
+        </span>
+      </div>
+
+      <!-- Options Panel -->
+      <!-- <div class="form-options">
+        <label class="checkbox-container">
+          <input type="checkbox" formControlName="rememberMe">
+          <span class="checkbox-label">Keep me logged in</span>
+        </label>
+      </div> -->
+
+      <!-- Action Submission Button -->
+      <button type="submit" [disabled]="isLoading" class="btn-login-submit">
+        <span *ngIf="!isLoading">Sign In</span>
+        <span *ngIf="isLoading" class="spinner-text">Authenticating...</span>
+      </button>
+
+    </form>
+
+  </div>
+</div>

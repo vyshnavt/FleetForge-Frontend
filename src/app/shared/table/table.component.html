@@ -1,0 +1,56 @@
+<!-- <table class="w border-collapse text-left">
+    <thead class="bg-gray-100">
+      <tr>
+        <th *ngFor="let head of headers" class="p-3 border-b font-semibold text-gray-700">
+          {{ head }}
+        </th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let list of data" class="border-b hover:bg-gray-50 transition-colors">
+        <td *ngFor="let col of columns" class="p-3 text-sm text-gray-600 align-middle">
+          {{ list[col] }}
+        </td>
+        <td class="p-3 align-middle w-20 text-center">
+          <button (click)="viewDetails(list.billNo)" 
+                  class="text-gray-400 hover:text-blue-600 transition-colors p-1 inline-flex items-center justify-center"
+                  title="View Details">
+            <svg xmlns="http://w3.org" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-5 h-5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+            </svg>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table> -->
+
+  <table class="custom-table">
+  <thead>
+    <tr class="table-head-row">
+      <th *ngFor="let head of headers" class="table-heading">
+        {{ head }}
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let list of data" class="table-body-row">
+      
+      <!-- 1. Pure Data Columns -->
+      <td *ngFor="let col of columns" class="table-cell">
+        {{ list[col] }}
+      </td>
+
+      <!-- 2. Independent Action Column -->
+      <td class="action-cell">
+        <button (click)="viewDetails(list.billNo)" class="action-btn" title="View Details">
+          <svg xmlns="http://w3.org" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="action-icon">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+          </svg>
+        </button>
+      </td>
+
+    </tr>
+  </tbody>
+</table>

@@ -1,0 +1,29 @@
+/* src/app/features/bill/pages/bill-list/bill-list.component.scss */
+@use '../../../../../styles/tokens';
+
+.bill-container-card {
+  @include tokens.global-card;
+}
+
+.list-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.page-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #1f2937;
+}
+
+.btn-create {
+  @include tokens.global-btn-base;
+  background-color: tokens.$color-primary;
+  color: #ffffff;
+
+  &:hover {
+    background-color: tokens.$color-primary-hover;
+  }
+}

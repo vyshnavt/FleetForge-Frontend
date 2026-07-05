@@ -1,0 +1,46 @@
+<!-- <div
+  [ngClass]="isCollapsed ? 'w-16' : 'w-60'" 
+  class="h-screen bg-white border-r transition-all duration-300 flex flex-col"
+>
+ <div class="btn-primary">
+    <span *ngIf="isCollapsed" class="text-xl">Ft</span>
+    <span *ngIf="!isCollapsed" class="text-xl">FleetForge</span>
+ </div>
+  <button
+    (click)="toggleSidebar()"
+    class="p-3 text-left hover:bg-gray-100"
+  >
+    ☰
+  </button>
+
+  <ul class="mt-4 space-y-2">
+    <li
+      *ngFor="let item of menuItems"
+      class="flex items-center gap-3 p-3 hover:bg-gray-100 cursor-pointer rounded"
+    >
+      <span class="text-xl">{{ item.icon }}</span>
+
+      <span *ngIf="!isCollapsed" class="text-sm">
+        {{ item.label }}
+      </span>
+    </li>
+  </ul>
+
+</div> -->
+
+<!-- sidebar.component.html -->
+<div class="sidebar-brand-section">
+  <div class="btn-primary">
+    <span *ngIf="isCollapsed">Ft</span>
+    <span *ngIf="!isCollapsed">FleetForge</span>
+  </div>
+</div>
+
+<button (click)="toggleSidebar()" class="sidebar-toggle-btn">☰</button>
+
+<ul class="sidebar-menu">
+  <li *ngFor="let item of menuItems" class="menu-item">
+    <span class="menu-icon">{{ item.icon }}</span>
+    <span *ngIf="!isCollapsed" class="menu-label">{{ item.label }}</span>
+  </li>
+</ul>

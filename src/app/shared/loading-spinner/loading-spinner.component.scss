@@ -1,0 +1,36 @@
+@use '../../../styles/tokens';
+
+.global-loading-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.83); // Frosted overlay mask
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  z-index: 50;
+  border-radius: 0.375rem;
+}
+
+.global-loading-spinner {
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 4px solid #e5e7eb;
+  border-top-color: tokens.$color-primary; // Uses your global primary brand color
+  border-radius: 50%;
+  animation: global-spin-motion 0.8s linear infinite;
+}
+
+.loading-text {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #6b7280;
+}
+
+@keyframes global-spin-motion {
+  to { transform: rotate(360deg); }
+}

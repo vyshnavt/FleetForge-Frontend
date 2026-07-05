@@ -1,0 +1,12 @@
+/* footer.component.scss */
+@use '../../../../styles/tokens';
+
+:host {
+  @include tokens.component-host;
+  background-color: #ffffff;
+  border-top: 1px solid tokens.$color-border;
+}
+
+.footer-inner {
+  padding: 1rem 1.5rem;
+}

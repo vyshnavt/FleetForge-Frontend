@@ -1,0 +1,103 @@
+/* src/styles/_tokens.scss */
+
+// Brand Design Variables
+$color-primary: #2563eb;       // Blue-600
+$color-primary-hover: #1d4ed8; // Blue-700
+$color-danger: #ef4444;        // Red-500
+$color-border: #e5e7eb;        // Gray-200
+$color-text-main: #374151;     // Gray-700
+$color-text-muted: #4b5563;    // Gray-600
+$color-icon-default: #9ca3af;  // Gray-400
+$color-bg-main: #f9fafb;       // Gray-200
+$color-danger-hover: #dc2626;  // Red-600
+$color-bg-dark: #1f2937;       // Gray-800
+$color-bg-dark-hover: #374151; // Gray-700
+       
+
+// Shared Form Mixin
+@mixin input-base-layout {
+  width: 100%;
+  padding: 0.5rem;
+  font-size: 0.875rem;
+  border: 1px solid $color-border;
+  border-radius: 0.375rem;
+  outline: none;
+  transition: all 0.15s ease-in-out;
+
+  &:focus {
+    border-color: $color-primary;
+    box-shadow: 0 0 0 2px rgba($color-primary, 0.15);
+  }
+}
+
+@mixin global-table-structure {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+@mixin global-table-cell {
+  padding: 0.75rem 1rem;
+  font-size: 0.875rem;
+  vertical-align: middle;
+}
+
+@mixin full-bleed-layout {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+
+@mixin component-host {
+  display: block;
+  width: 100%;
+}
+
+@mixin global-card {
+  padding: 1.5rem;
+  background-color: #ffffff;
+  border-radius: 0.375rem;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+}
+
+// Universal Button Base
+@mixin global-btn-base {
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  border-radius: 0.375rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+}
+
+// Universal Form Input Field
+@mixin global-input-base {
+  width: 100%;
+  border: 1px solid $color-border;
+  padding: 0.5rem;
+  border-radius: 0.375rem;
+  outline: none;
+  font-size: 0.875rem;
+  transition: all 0.15s ease-in-out;
+
+  &:focus {
+    border-color: $color-primary;
+    box-shadow: 0 0 0 2px rgba($color-primary, 0.15);
+  }
+}
+
+/* src/styles/_tokens.scss snippet */
+@mixin global-auth-background {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%); // Subtle clean gray gradient
+  padding: 1.5rem;
+}

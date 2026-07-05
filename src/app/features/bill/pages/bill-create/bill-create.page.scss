@@ -1,0 +1,95 @@
+@use '../../../../../styles/tokens';
+
+.bill-container-card {
+  @include tokens.global-card;
+  &.max-width-container { max-width: 64rem; margin-left: auto; margin-right: auto; }
+}
+
+.page-title { font-size: 1.5rem; font-weight: 700; margin-bottom: 1.5rem; color: #1f2937; }
+
+// Main Details Grid
+.form-grid-two {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  @media (min-width: 768px) { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+.form-field-group {
+  display: flex;
+  flex-direction: column;
+  .field-label { font-size: 0.875rem; font-weight: 500; color: #374151; margin-bottom: 0.25rem; }
+}
+
+.form-input { @include tokens.global-input-base; }
+.form-input-compact { @include tokens.global-input-base; padding: 0.375rem 0.5rem; }
+
+.input-error {
+  border-color: tokens.$color-danger !important;
+  &:focus { box-shadow: 0 0 0 2px rgba(tokens.$color-danger, 0.15) !important; }
+}
+
+// Structured Layout Table
+.items-table-wrapper { border: 1px solid tokens.$color-border; border-radius: 0.375rem; overflow: hidden; margin-bottom: 1.5rem; }
+.items-table-header { background-color: #f9fafb; padding: 0.75rem; font-weight: 600; color: #374151; border-bottom: 1px solid tokens.$color-border; }
+.items-table-body { display: flex; flex-direction: column; .body-row { padding: 0.75rem; border-bottom: 1px solid tokens.$color-border; &:last-child { border-bottom: none; } &:hover { background-color: #f9fafb; } } }
+
+// Reusable 12-Column Row Blueprint
+.item-row-grid {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 0.5rem;
+  align-items: center;
+  font-size: 0.875rem;
+
+  .span-4 { grid-column: span 4; }
+  .span-2 { grid-column: span 2; }
+  .span-1 { grid-column: span 1; }
+  .text-right { text-align: right; }
+  .text-center { text-align: center; }
+  .font-total { font-weight: 500; color: #374151; }
+}
+
+// Inner Actions & Utilities
+.btn-delete-row {
+  background: transparent; border: none; cursor: pointer; padding: 0.25rem; color: tokens.$color-danger;
+  &:hover { color: tokens.$color-danger-hover; }
+  &:disabled { opacity: 0.3; cursor: not-allowed; }
+  .icon-trash { width: 1.25rem; height: 1.25rem; margin-left: auto; margin-right: auto; }
+}
+
+.summary-control-bar {
+  display: flex; flex-direction: column; gap: 1rem; border-top: 1px solid tokens.$color-border; padding-top: 1rem;
+  @media (min-width: 640px) { flex-direction: row; justify-content: space-between; align-items: center; }
+}
+
+.btn-add-item {
+  @include tokens.global-btn-base; background-color: tokens.$color-bg-dark; color: #ffffff;
+  &:hover { background-color: tokens.$color-bg-dark-hover; }
+}
+
+.grand-total-box {
+  background-color: #f9fafb; padding: 0.75rem 1.5rem; border-radius: 0.375rem; border: 1px solid tokens.$color-border; text-align: right; width: 100%;
+  @media (min-width: 640px) { width: auto; }
+  .label { color: #4b5563; font-size: 0.875rem; margin-right: 1rem; }
+  .value { font-size: 1.25rem; font-weight: 700; color: #111827; }
+}
+
+.form-action-footer {
+  display: flex; justify-content: flex-end; gap: 0.75rem; margin-top: 1.5rem;
+  .btn-cancel { @include tokens.global-btn-base; border: 1px solid tokens.$color-border; color: #374151; background-color: #ffffff; &:hover { background-color: #f9fafb; } }
+  .btn-save { @include tokens.global-btn-base; background-color: tokens.$color-primary; color: #ffffff; &:hover { background-color: tokens.$color-primary-hover; } }
+}
+
+.form-input {
+  @include tokens.global-input-base;
+
+  // Native Angular style rule applied automatically to disabled fields
+  &:disabled {
+    background-color: #f3f4f6; // Light gray lockdown tint
+    color: #9ca3af;            // Faded text color
+    cursor: not-allowed;       // Block action mouse cursor
+    border-color: #d1d5db;
+  }
+}
