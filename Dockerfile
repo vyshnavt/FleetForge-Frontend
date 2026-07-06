@@ -1,4 +1,5 @@
-FROM node:18-alpine
+# Stage 1 - Build Angular
+FROM node:18-alpine AS builder
 
 WORKDIR /app
 
@@ -8,6 +9,15 @@ RUN npm install
 
 COPY . .
 
-EXPOSE 4200
+RUN npm run build
 
-CMD ["npm", "start"]
+# Stage 2 - Serve using Nginx
+FROM nginx:alpine
+
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+
+COPY --from=builder /app/dist/<YOUR_PROJECT_NAME>/browser /usr/share/nginx/html
+
+EXPOSE 80
+
+CMD ["nginx", "-g", "daemon off;"]
