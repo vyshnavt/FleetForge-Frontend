@@ -1,4 +1,4 @@
 export const environment = {
     production: true,
-    apiUrl: 'https://fleetforge.com' 
+    apiUrl: 'https://fleetforge.com/api' 
 };
