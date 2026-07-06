@@ -16,7 +16,7 @@ FROM nginx:alpine
 
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 
-COPY --from=builder /app/dist/<YOUR_PROJECT_NAME>/browser /usr/share/nginx/html
+COPY --from=builder /app/dist/fleetforge/browser /usr/share/nginx/html
 
 EXPOSE 80
 
