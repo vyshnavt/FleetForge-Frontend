@@ -7,26 +7,35 @@ export const routes: Routes = [
   {
     path: '',
     component: MainLayoutComponent,
+    canActivate: [authGuard],
     children: [
+      {
+        path: '',
+        redirectTo: 'bills',
+        pathMatch: 'full' 
+      },
       {
         path: 'bills',
         loadChildren: () =>
           import('./features/bill/bill.routes')
-            .then(m => m.BILL_ROUTES),
-            canActivate: [authGuard]
+            .then(m => m.BILL_ROUTES)
       }
     ]
   },
   {
     path: '',
+    canActivate: [guestGuard],
     children: [
       {
         path: 'login',
         loadChildren: () =>
           import('./features/auth/auth.routes')
-            .then(m => m.AUTH_ROUTES),
-        canActivate: [guestGuard]
+            .then(m => m.AUTH_ROUTES)
       }
     ]
+  },
+  {
+    path: '**',
+    redirectTo: ''
   }
 ];
