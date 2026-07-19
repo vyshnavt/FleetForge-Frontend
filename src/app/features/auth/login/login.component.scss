@@ -131,3 +131,9 @@
     cursor: not-allowed;
   }
 }
+
+.error-message-text {
+    font-size: 0.75rem;
+    color: tokens.$color-danger;
+    margin-top: 0.125rem;
+  }

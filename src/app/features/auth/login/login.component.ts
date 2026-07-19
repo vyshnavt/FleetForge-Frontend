@@ -16,6 +16,7 @@ import { AuthStateService } from '../../../core/services/auth-state.service';
 export class LoginComponent implements OnInit {
   loginForm!: FormGroup;
   isLoading = false;
+  showInvalidCredentialsMessage = false;
   private platformId = inject(PLATFORM_ID);
   
 
@@ -46,26 +47,21 @@ export class LoginComponent implements OnInit {
           this.router.navigateByUrl(returnUrl);
         },
         error: (error) =>{
+          this.showInvalidCredentialsMessage = true;
           console.log('Login failed:', error); 
           this.isLoading = false;
         }
-      })
-      // setTimeout(() => {
-      //   this.isLoading = false;
-      //   this.router.navigate(['/bills']);
-      // }, 1500);
-
-      // if (isPlatformBrowser(this.platformId)) {
-      //     localStorage.setItem('token', 'response.token');
-      //   }
-
-      
-
-      // 3. Navigate the user
-      
+      });
 
     } else {
+      
       this.loginForm.markAllAsTouched();
     }
   }
+
+  clearError() {
+    this.showInvalidCredentialsMessage = false;
+  }
+
+
 }

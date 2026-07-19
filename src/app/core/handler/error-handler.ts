@@ -15,13 +15,13 @@ export function handleHttpError(error: HttpErrorResponse) {
     case 404:
       userFriendlyMessage = 'The requested resource was not found.';
       // Global Action: Show a global toast/alert alert
-      alert(`[Global Alert 404]: ${userFriendlyMessage}`);
+      // alert(`[Global Alert 404]: ${userFriendlyMessage}`);
       break;
 
     case 500:
       userFriendlyMessage = 'Server error. Please try again later.';
       // Global Action: Show a global toast/alert alert
-      alert(`[Global Alert 500]: ${userFriendlyMessage}`);
+      // alert(`[Global Alert 500]: ${userFriendlyMessage}`);
       break;
 
     case 422:
